@@ -1,11 +1,11 @@
-# SPXXHi
-SPXXHi is a Minecraft.net ＆ X.com blog-to-BBCode converter based on SPXX User Script™️，adapted to himcbbs.com in order to make Minecraft news translation easier.
+# SPXX
+GSPXX is a Minecraft.net ＆ X.com blog-to-BBCode converter based on SPXX User Script™️，adapted to himcbbs.com in order to make Minecraft news translation easier.
 
-SPXXHi 是一个基于 SPXX User Script™️ 的 Minecraft.net 、 feedback.minecraft.net 、 help.minecraft net 及 X.com 博文至 BBCode 转换器，进行了一系列修复、完善与调整以便适应 himcbbs.com 的版块规定，令快讯翻译更便捷。
+GSPXX 是一个基于 SPXX User Script™️ 的 Minecraft.net 、 feedback.minecraft.net 、 help.minecraft net 及 X.com 博文至 BBCode 转换器，进行了一系列修复、完善与调整以便适应 geemc.cn 的版块规定，令快讯翻译更便捷。
 
-SPXXHi is licensed under MIT.
+GSPXX is licensed under MIT.
 
-SPXXHi 采用 MIT 协议进行授权。
+GSPXX 采用 MIT 协议进行授权。
 
 # About SPXX User Script™️
 SPXX is a project which rewrites SPX,focusing on assisting news translaters.
@@ -21,9 +21,9 @@ SPXX project is licensed under [CC0-1.0](https://creativecommons.org/publicdomai
 SPXX 项目使用 CC0-1.0 协议进行授权。
 
 # Contributers
-SPXXHi is written by Cinder0601 based on SPXX User Script v2.4.14 and SPX.
+GSPXX is written by Cinder0601 based on SPXX User Script v2.4.14 and SPX.
 
-SPXXHi 由 Cinder0601 基于 SPXX 用户脚本 v2.4.14 及 SPX 进行改写。
+GSPXX 由 Cinder0601 基于 SPXX 用户脚本 v2.4.14 及 SPX 进行改写。
 
 Got help from [Redstone-D](https://github.com/Redstone-D) during development.
 
