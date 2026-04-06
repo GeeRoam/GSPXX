@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name        SPXXHi
-// @description Minecraft.net & X.com blog article to BBCode converter, adapted to HiMCBBS
-// @namespace   npmjs.com/package/@spxxhi/userscript
+// @name        GSPXX
+// @description Minecraft.net & X.com blog article to BBCode converter, adapted to GeeMC
+// @namespace   npmjs.com/package/@gspxx/userscript
 // @author      Cinder & SPGoding & SPX Fellow
 // @connect     *
 // @connect     feedback.minecraft.com
 // @connect     help.minecraft.net
 // @connect     raw.githubusercontent.com
-// @homepage    https://github.com/cinder0601/SPXXHi
+// @homepage    https://github.com/cinder0601/GSPXX
 // @match       https://www.minecraft.net/en-us/article/*
 // @match       https://www.minecraft.net/zh-hans/article/*
 // @match       https://x.com/*/status/*
@@ -15,23 +15,23 @@
 // @match       https://help.minecraft.net/hc/en-us/articles/*
 // @require     https://fastly.jsdelivr.net/gh/sizzlemctwizzle/GM_config@2207c5c1322ebb56e401f03c2e581719f909762a/gm_config.js
 // @icon        https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/favicon.ico
-// @version     3.2.5
+// @version     3.2.6
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_setClipboard
 // @grant       GM_xmlhttpRequest
 // @grant       GM_registerMenuCommand
 // @license     MIT
-// @downloadURL https://update.greasyfork.org/scripts/500327/SPXXHi.user.js
-// @updateURL   https://update.greasyfork.org/scripts/500327/SPXXHi.meta.js
+// @downloadURL https://update.greasyfork.org/scripts/500327/GSPXX.user.js
+// @updateURL   https://update.greasyfork.org/scripts/500327/GSPXX.meta.js
 // ==/UserScript==
 (function () {
   "use strict";
 
   var GM_config = new GM_configStruct();
   GM_config.init({
-    id: "spxxhi",
-    title: "SPXXHi 用户脚本",
+    id: "gspxx",
+    title: "GSPXX 用户脚本",
     fields: {
       translator: {
         label: "译者名",
@@ -71,7 +71,7 @@
   let c = "";
 
   if (src == "Github") {
-    console.log("[SPXXHi] 正在使用 Github 漏洞中心");
+    console.log("[GSPXX] 正在使用 Github 漏洞中心");
     tr =
       "https://raw.githubusercontent.com/SPXFellow/spxx-translation-database/crowdin/zh-CN/zh_CN.json";
     tor =
@@ -79,7 +79,7 @@
     c =
       "https://raw.githubusercontent.com/SPXFellow/spxx-translation-database/master/color.json";
   } else if (src == "自定义") {
-    console.log("[SPXXHi] 正在使用自定义漏洞中心");
+    console.log("[GSPXX] 正在使用自定义漏洞中心");
     tr = GM_config.get("bugCenterTranslation");
     tor = GM_config.get("bugCenterTranslator");
     c = GM_config.get("bugCenterColor");
@@ -125,7 +125,7 @@
   const bugsCenter = config.bugCenter.translation;
   const bugsTranslatorsTable = config.bugCenter.translator;
   const translatorColorTable = config.bugCenter.color;
-  const spxxhiVersion = version;
+  const gspxxVersion = version;
   const url1 = window.location.href;
 
   function getReleaseVersionCode(url) {
@@ -338,7 +338,7 @@
       )}`;
     }
 
-    const poweredBy = `\n[center][size=1][color=Silver]Powered by SPXXHi ${spxxhiVersion} with love
+    const poweredBy = `\n[center][size=1][color=Silver]Powered by GSPXX ${gspxxVersion} with love
 Converted at ${time.getFullYear()}-${
       padTime(time.getMonth() + 1) // why +1 javascript
     }-${padTime(time.getDate())} ${padTime(time.getHours())}:${padTime(
@@ -349,25 +349,25 @@ Converted at ${time.getFullYear()}-${
 
     switch (type) {
       case VersionType.Snapshot:
-        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.himcbbs.com/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
+        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.geemc.cn/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
 
       case VersionType.PreRelease:
-        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.himcbbs.com/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
+        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.geemc.cn/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
 
       case VersionType.ReleaseCandidate:
-        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.himcbbs.com/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
+        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.geemc.cn/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
 
       case VersionType.Release:
-        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.himcbbs.com/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
+        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.geemc.cn/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
 
       case VersionType.BedrockRelease:
-        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.himcbbs.com/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
+        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.geemc.cn/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
 
       case VersionType.BedrockBeta:
-        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.himcbbs.com/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
+        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.geemc.cn/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
 
       case VersionType.Normal:
-        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.himcbbs.com/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
+        return `\n${poweredBy}\n[hr][color=#388e3c][size=5]|[/size][/color][size=4][b]想了解更多游戏资讯？[/b][/size][list][*][size=3][url=https://www.geemc.cn/forums/news/][color=#388e3c][u]HiMCBBS - 新闻资讯版块[/u][/color][/url][/size][/list]`;
     }
   }
   let VersionType;
@@ -559,7 +559,7 @@ Converted at ${time.getFullYear()}-${
      * Converts a ChildNode to a BBCode string according to the type of the node.
      */
     convert: async (node, ctx) => {
-      if (node.classList?.contains("spxxhi-userscript-ignored")) {
+      if (node.classList?.contains("gspxx-userscript-ignored")) {
         return "";
       } // Listing all possible elements in the document
 
@@ -827,7 +827,7 @@ Converted at ${time.getFullYear()}-${
       const ans = `\n\n${await converters.recurse(
         ele,
         ctx
-      )}\n【本文排版借助了：[url=https://github.com/cinder0601/SPXXHi][color=#388d40][u]SPXXHi[/u][/color][/url] 用户脚本 v${spxxhiVersion}】\n\n`;
+      )}\n【本文排版借助了：[url=https://github.com/cinder0601/GSPXX][color=#388d40][u]GSPXX[/u][/color][/url] 用户脚本 v${gspxxVersion}】\n\n`;
       return ans;
     },
     dd: async (ele, ctx) => {
@@ -1409,7 +1409,7 @@ Converted at ${time.getFullYear()}-${
       const dateElement = authorContainer.querySelector("dd:nth-child(4)"); // 获取发布日期的 dd 元素
 
       const button = document.createElement("button");
-      button.classList.add("spxxhi-userscript-ignored");
+      button.classList.add("gspxx-userscript-ignored");
       button.innerText = "复制 BBCode （HiMCBBS）";
       // 按钮样式设置
       button.style.backgroundColor = "#3C8527";
@@ -1444,7 +1444,7 @@ Converted at ${time.getFullYear()}-${
         setTimeout(() => (button.innerText = "复制 BBCode （HiMCBBS）"), 5000);
       };
       const container = document.createElement("div");
-      container.id = "spxxhi-buttons";
+      container.id = "gspxx-buttons";
       container.style.display = "flex";
       container.style.flexDirection = "column";
       container.style.alignItems = "flex-end";
@@ -1609,7 +1609,7 @@ Converted at ${time.getFullYear()}-${
       let url = window.location.href;
       let title = await getMainTitle(html);
 
-      let ans = `\n${authorImgUrl ? `[left][img]${authorImgUrl}[/img][/left]\n\n\n` : ''}【${translator} 译自[url=${url}][color=#388d40][u]${authorName} ${year} 年 ${month} 月 ${day} 日发布的 ${title}[/u][/color][/url]】[/b]\n【本文排版借助了：[url=https://github.com/cinder0601/SPXXHi][color=#388d40][u]SPXXHi[/u][/color][/url] 用户脚本 v${spxxhiVersion}】`;
+      let ans = `\n${authorImgUrl ? `[left][img]${authorImgUrl}[/img][/left]\n\n\n` : ''}【${translator} 译自[url=${url}][color=#388d40][u]${authorName} ${year} 年 ${month} 月 ${day} 日发布的 ${title}[/u][/color][/url]】[/b]\n【本文排版借助了：[url=https://github.com/cinder0601/GSPXX][color=#388d40][u]GSPXX[/u][/color][/url] 用户脚本 v${gspxxVersion}】`;
       return ans;
     } catch (error) {
       console.error("Error in getAuthor function:", error);
@@ -1672,7 +1672,7 @@ Converted at ${time.getFullYear()}-${
 
   function getZendesk(controlDOM, titleSlice, contentClass, versionType) {
     const button = document.createElement("a");
-    button.classList.add("spxxhi-userscript-ignored", "navLink");
+    button.classList.add("gspxx-userscript-ignored", "navLink");
     button.innerText = "复制 BBCode （HiMCBBS）";
     // 按钮样式设置
     button.style.backgroundColor = "#3C8527";
@@ -1713,7 +1713,7 @@ Converted at ${time.getFullYear()}-${
       setTimeout(() => (button.innerText = "复制 BBCode （HiMCBBS）"), 5_000);
     };
     const container = document.createElement("div");
-    container.id = "spxxhi-buttons";
+    container.id = "gspxx-buttons";
     container.style.display = "flex";
     container.style.flexDirection = "column";
     container.style.alignItems = "flex-end";
@@ -1764,7 +1764,7 @@ Converted at ${time.getFullYear()}-${
     const content = document.getElementsByClassName("article-page-body");
 
     const button = document.createElement("a");
-    button.classList.add("spxxhi-userscript-ignored", "navLink");
+    button.classList.add("gspxx-userscript-ignored", "navLink");
     button.innerText = "复制 BBCode （HiMCBBS）";
     // 按钮样式设置
     button.style.backgroundColor = "#3C8527";
@@ -1794,7 +1794,7 @@ Converted at ${time.getFullYear()}-${
       title = title.replace(/\n/g, "");
       bbcode = `[color=#388e3c][size=5]|[/size][/color][size=4]本文内容按照 [/size][url=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans][size=4][color=#2e8b57][u]CC BY-NC-SA 4.0[/u][/color][/size][/url][size=4] 协议进行授权，[b]转载本帖时须注明[color=#ff0000]原作者[/color]以及[color=#ff0000]本帖地址[/color][/b]。[/size][hr]\n[size=6][b][color=silver]${bbcode}[/color][/b][/size][size=6][b]${bbcode}[/b][/size]\n`;
       bbcode += await converthelpElementsToBBCode(content, ctx);
-      bbcode += `[b]【${ctx.translator} 译自[url=${ctx.url}][color=#388d40][u] help.minecraft.net 上的 ${title}[/u][/color][/url]】[/b]\n【本文排版借助了：[url=https://github.com/cinder0601/SPXXHi][color=#388d40][u]SPXXHi[/u][/color][/url] 用户脚本 v${version}】\n`;
+      bbcode += `[b]【${ctx.translator} 译自[url=${ctx.url}][color=#388d40][u] help.minecraft.net 上的 ${title}[/u][/color][/url]】[/b]\n【本文排版借助了：[url=https://github.com/cinder0601/GSPXX][color=#388d40][u]GSPXX[/u][/color][/url] 用户脚本 v${version}】\n`;
       bbcode += getFooter("INSIDER", VersionType.Normal);
       GM_setClipboard(bbcode, {
         type: "text",
@@ -1804,7 +1804,7 @@ Converted at ${time.getFullYear()}-${
       setTimeout(() => (button.innerText = "复制 BBCode （HiMCBBS）"), 5000);
     };
     const container = document.createElement("div");
-    container.id = "spxxhi-buttons";
+    container.id = "gspxx-buttons";
     container.style.display = "flex";
     container.style.flexDirection = "column";
     container.style.alignItems = "flex-end";
@@ -1847,7 +1847,7 @@ ${translate(
     } ${posted.year} 年 ${posted.month} 月 ${posted.day} 日发布的 ${
       ctx.title
     }[/u][/color][/url]】[/b]
-【本文排版借助了：[url=https://github.com/HiMCBBS/SPXXHi][color=#388d40][u]SPXXHi[/u][/color][/url] 用户脚本 v${spxxhiVersion}】\n\n${footer}`;
+【本文排版借助了：[url=https://github.com/HiMCBBS/GSPXX][color=#388d40][u]GSPXX[/u][/color][/url] 用户脚本 v${gspxxVersion}】\n\n${footer}`;
     return ans;
   }
 
@@ -2031,7 +2031,7 @@ ${translate(
       const attributeColor = "#5B7083";
       const backgroundColor = mode === "dark" ? "#000000" : "#FFFFFF";
       const foregroundColor = mode === "dark" ? "#D9D9D9" : "#0F1419";
-      const dateString = `${tweet.date} · ${tweet.source} · SPXXHi v${spxxhiVersion} · 转载请注明原作者及本帖地址`;
+      const dateString = `${tweet.date} · ${tweet.source} · GSPXX v${gspxxVersion} · 转载请注明原作者及本帖地址`;
       const content = tweet.text;
       const content1 = tweet.rawtext;
 
@@ -2059,7 +2059,7 @@ ${translate(
     }
 
     function x() {
-      console.info("[SPXXHi] Activated");
+      console.info("[GSPXX] Activated");
 
       const buttonLight = document.createElement("button");
       buttonLight.style.backgroundColor = "rgb(255, 255, 255)";
@@ -2131,9 +2131,9 @@ ${translate(
 
       const checkLoaded = setInterval(() => {
         const targetDiv = document.querySelector("article div[lang]");
-        if (targetDiv && !document.querySelector("#spxxhi-buttons")) {
+        if (targetDiv && !document.querySelector("#gspxx-buttons")) {
           const container = document.createElement("div");
-          container.id = "spxxhi-buttons";
+          container.id = "gspxx-buttons";
           container.style.display = "flex";
           container.style.flexDirection = "column";
           container.style.alignItems = "flex-end";
