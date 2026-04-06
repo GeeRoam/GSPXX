@@ -7,7 +7,7 @@
 // @connect     feedback.minecraft.com
 // @connect     help.minecraft.net
 // @connect     raw.githubusercontent.com
-// @homepage    https://github.com/cinder0601/GSPXX
+// @homepage    https://github.com/GeeRoam/GSPXX
 // @match       https://www.minecraft.net/en-us/article/*
 // @match       https://www.minecraft.net/zh-hans/article/*
 // @match       https://x.com/*/status/*
